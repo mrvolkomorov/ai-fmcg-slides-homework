@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Домашнее задание — Презентация за 30 минут | AI для FMCG</title>
+<style>
+*, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif; background: rgb(245,245,247); color: rgb(29,29,31); line-height: 1.55; padding: 20px; }
+.container { max-width: 960px; margin: 0 auto; }
+header { text-align: center; padding: 48px 0 12px; }
+header h1 { font-size: 2em; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 6px; }
+header h1 span { color: rgb(0,102,204); }
+header .sub { color: rgb(110,110,115); font-size: 1.05em; max-width: 640px; margin: 0 auto; }
+header .meta { color: rgb(154,154,159); font-size: 0.85em; margin-top: 10px; }
+.back-link { display: inline-block; margin-top: 14px; padding: 8px 18px; background: rgb(0,102,204); color: #fff; border-radius: 8px; text-decoration: none; font-size: 0.85em; font-weight: 500; }
+.back-link:hover { background: rgb(0,92,184); }
+
+.section-title { font-size: 0.8em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgb(110,110,115); margin: 36px 0 12px; }
+
+.card { background: rgb(255,255,255); border-radius: 14px; margin-bottom: 12px; box-shadow: rgba(0,0,0,0.07) 0 1px 3px; overflow: hidden; }
+.card-body { padding: 18px 22px; }
+
+.goal { background: rgb(232,240,254); border-radius: 14px; padding: 16px 20px; margin: 24px 0 8px; font-size: 0.92em; }
+.goal strong { color: rgb(21,101,192); }
+
+.step { display: flex; gap: 14px; background: rgb(255,255,255); border-radius: 14px; margin-bottom: 10px; box-shadow: rgba(0,0,0,0.07) 0 1px 3px; padding: 16px 18px; align-items: flex-start; }
+.step-num { width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: rgb(0,102,204); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95em; }
+.step h4 { font-size: 0.98em; font-weight: 600; margin-bottom: 3px; }
+.step p { font-size: 0.88em; color: rgb(90,90,95); }
+.step .hint { font-size: 0.82em; color: rgb(110,110,115); margin-top: 5px; background: rgb(245,245,247); padding: 6px 10px; border-radius: 8px; }
+
+.star { background: rgb(255,248,225); border-left: 4px solid rgb(255,160,0); }
+.star h2 { font-size: 1.05em; font-weight: 700; margin-bottom: 8px; }
+.star p { font-size: 0.9em; margin-bottom: 6px; }
+
+.cheatsheet { background: rgb(255,255,255); border-radius: 14px; margin: 12px 0; box-shadow: rgba(0,0,0,0.07) 0 1px 3px; padding: 22px 24px; }
+.cheatsheet h2 { font-size: 1.1em; font-weight: 700; margin-bottom: 14px; }
+.cheat-row { display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 7px 0; border-bottom: 1px solid rgb(240,240,242); font-size: 0.88em; align-items: baseline; }
+.cheat-row:last-child { border-bottom: none; }
+.cheat-task { font-weight: 600; flex: 1 1 260px; min-width: 220px; }
+.cheat-arrow { color: rgb(154,154,159); }
+.cheat-tool { color: rgb(0,102,204); font-weight: 500; flex: 1 1 300px; }
+
+.checklist { background: rgb(255,255,255); border-radius: 14px; margin: 12px 0; box-shadow: rgba(0,0,0,0.07) 0 1px 3px; padding: 22px 24px; }
+.checklist h2 { font-size: 1.1em; font-weight: 700; margin-bottom: 14px; }
+.check-item { display: flex; gap: 10px; padding: 7px 0; font-size: 0.9em; align-items: flex-start; }
+.check-item .box { flex-shrink: 0; width: 18px; height: 18px; border: 2px solid rgb(46,125,50); border-radius: 5px; margin-top: 2px; }
+
+.criteria { background: rgb(255,255,255); border-radius: 14px; margin: 12px 0; box-shadow: rgba(0,0,0,0.07) 0 1px 3px; padding: 22px 24px; }
+.criteria h2 { font-size: 1.1em; font-weight: 700; margin-bottom: 14px; }
+.crit-item { padding: 7px 0; font-size: 0.9em; border-bottom: 1px solid rgb(240,240,242); }
+.crit-item:last-child { border-bottom: none; }
+.crit-item strong { color: rgb(29,29,31); }
+
+.mistakes { background: rgb(255,255,255); border-radius: 14px; margin: 12px 0; box-shadow: rgba(0,0,0,0.07) 0 1px 3px; padding: 22px 24px; }
+.mistakes h2 { font-size: 1.1em; font-weight: 700; margin-bottom: 14px; }
+.mistake-item { padding: 7px 0 7px 22px; font-size: 0.9em; position: relative; border-bottom: 1px solid rgb(240,240,242); }
+.mistake-item:last-child { border-bottom: none; }
+.mistake-item::before { content: "⚠️"; position: absolute; left: 0; top: 7px; font-size: 0.9em; }
+
+.template { background: rgb(29,29,31); color: rgb(240,240,242); border-radius: 14px; margin: 12px 0; padding: 20px 22px; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.84em; line-height: 1.7; white-space: pre-wrap; }
+.template h2 { color: #fff; font-size: 1em; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin-bottom: 10px; }
+
+.deadline { text-align: center; background: rgb(0,102,204); color: #fff; border-radius: 14px; padding: 16px 20px; margin: 28px 0 12px; font-weight: 600; font-size: 0.95em; }
+.deadline small { display: block; font-weight: 400; opacity: 0.85; margin-top: 3px; font-size: 0.82em; }
+
+footer { text-align: center; padding: 32px 0 20px; color: rgb(154,154,159); font-size: 0.82em; }
+footer a { color: rgb(0,102,204); text-decoration: none; }
+@media (max-width: 600px) {
+  body { padding: 12px; }
+  header h1 { font-size: 1.5em; }
+  .card-body, .cheatsheet, .checklist, .criteria, .mistakes { padding: 16px 16px; }
+  .step { padding: 13px 14px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>📝 <span>Домашнее задание</span></h1>
+  <p class="sub">Занятие 3 «Презентации с ИИ» — соберите реальную рабочую деку в одном из сервисов практикума</p>
+  <p class="meta">AI для FMCG 2026 · аудитория: коммерческие директора</p>
+  <a class="back-link" href="https://mrvolkomorov.github.io/ai-fmcg-portal/" target="_blank">← Назад к каталогу материалов</a>
+</header>
+
+<div class="goal">
+  🎯 <strong>Цель:</strong> попрактиковаться на своей собственной задаче, а не на выдуманном примере. В конце задания у вас будет готовая рабочая презентация, понимание, какой инструмент подходит лично вам, и замер реальной экономии времени.
+</div>
+
+<div class="deadline">
+  Дедлайн: 8 октября 2026, 17:00 МСК
+  <small>Время выполнения: 40–60 минут · Формат сдачи: файл + короткое сообщение в чат группы</small>
+</div>
+
+<div class="section-title">Что сделать — 8 шагов</div>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div>
+    <h4>Выберите реальную задачу</h4>
+    <p>Возьмите то, что действительно нужно вам на этой неделе: еженедельный отчёт по продажам, презентация плана запуска НИ, разбор категории, материалы для переговоров с федеральной сетью или квартальное бизнес-ревью.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">2</div>
+  <div>
+    <h4>Сформулируйте контент</h4>
+    <p>Выпишите 5–7 ключевых тезисов и цифры, которые должны быть в деке. Без этого ИИ будет придумывать содержание — а нам нужен ваш смысл.</p>
+    <div class="hint">💡 Подготовьте данные заранее: цифры продаж, доли, планы — тогда генерация займёт минуты.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">3</div>
+  <div>
+    <h4>Выберите сервис по шпаргалке</h4>
+    <p>Ориентируйтесь на тип задачи (см. таблицу ниже). Если сомневаетесь — берите тот, который быстрее запускается у вас прямо сейчас.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">4</div>
+  <div>
+    <h4>Соберите деку — 8–12 слайдов</h4>
+    <p>Подайте свой текст или файл в сервис и сгенерируйте презентацию.</p>
+    <div class="hint">💡 Фишки из практикума: в Gamma три дефиса (---) делят текст на карточки; в Kimi выберите стиль из каталога; в Manus загрузите PDF-отчёт; в Claude используйте мастер-слайды и фирменный шаблон.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">5</div>
+  <div>
+    <h4>Проверьте факты и цифры</h4>
+    <p>Сверьте все числа в деке с вашими источниками. ИИ красиво формулирует, но цифры может исказить или придумать. Используйте проверку фактов в Genspark или сведите данные вручную.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">6</div>
+  <div>
+    <h4>Доработайте руками</h4>
+    <p>Вычитайте тексты, поправьте цифры, приведите к фирменным цветам и шаблону, если он есть. Цель — «Премиальный» результат, который можно показать руководству или сети без стыда.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">7</div>
+  <div>
+    <h4>Экспортируйте в PPTX</h4>
+    <p>Сохраните в PowerPoint, а не только в PDF — редактируемость понадобится в офисе. Убедитесь, что графики выглядят корректно после экспорта.</p>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">8</div>
+  <div>
+    <h4>Замерьте время и отправьте</h4>
+    <p>Посмотрите, сколько заняло от начала до финала, и пришлите в чат группы по шаблону ниже. Оценка «сколько было бы вручную» — на ваше усмотрение, её писать не обязательно, но она делает эффект очевидным.</p>
+  </div>
+</div>
+
+<div class="section-title">Какой сервис под какую задачу</div>
+<div class="cheatsheet">
+  <div class="cheat-row"><span class="cheat-task">Нужно красиво и за пять минут</span><span class="cheat-arrow">→</span><span class="cheat-tool">Gamma</span></div>
+  <div class="cheat-row"><span class="cheat-task">Есть отчёт или исследование (PDF, XLSX)</span><span class="cheat-arrow">→</span><span class="cheat-tool">Genspark · Gemini Notebook</span></div>
+  <div class="cheat-row"><span class="cheat-task">Нужно собрать факты с нуля</span><span class="cheat-arrow">→</span><span class="cheat-tool">Manus · Claude</span></div>
+  <div class="cheat-row"><span class="cheat-task">Есть фирменный шаблон PowerPoint</span><span class="cheat-arrow">→</span><span class="cheat-tool">Claude · Copilot</span></div>
+  <div class="cheat-row"><span class="cheat-task">Работа только из России</span><span class="cheat-arrow">→</span><span class="cheat-tool">Алиса AI · GigaChat</span></div>
+  <div class="cheat-row"><span class="cheat-task">Финальная ручная доводка</span><span class="cheat-arrow">→</span><span class="cheat-tool">Canva</span></div>
+</div>
+
+<div class="card">
+  <div class="card-body star">
+    <h2>⭐ Задание со звёздочкой (необязательно)</h2>
+    <p>Повторите тот же запрос во <strong>втором сервисе</strong> — сравните две деки на одной задаче. Как на занятии: «один запрос — три разные деки».</p>
+    <p>Напишите 3–4 предложения: что удобнее в каждом, чей результат ближе к тому, что вы показали бы руководству или сети, и какой инструмент оставите в своей работе.</p>
+  </div>
+</div>
+
+<div class="section-title">Чек-лист самопроверки</div>
+<div class="checklist">
+  <div class="check-item"><span class="box"></span><span>Взял(а) реальную рабочую задачу, а не выдуманный пример</span></div>
+  <div class="check-item"><span class="box"></span><span>В деке 8–12 слайдов, содержание соответствует теме</span></div>
+  <div class="check-item"><span class="box"></span><span>Все цифры и факты сверены с источником</span></div>
+  <div class="check-item"><span class="box"></span><span>Тексты вычитаны, нет «мусорных» формулировок</span></div>
+  <div class="check-item"><span class="box"></span><span>Фирменные цвета/шаблон учтены (если есть)</span></div>
+  <div class="check-item"><span class="box"></span><span>Экспортировал(а) в PPTX, файл открывается и редактируется</span></div>
+  <div class="check-item"><span class="box"></span><span>Зафиксировал(а) время выполнения</span></div>
+  <div class="check-item"><span class="box"></span><span>Готов(а) отправить файл в чат группы до 8 октября, 17:00 МСК</span></div>
+</div>
+
+<div class="section-title">Критерии зачёта</div>
+<div class="criteria">
+  <div class="crit-item"><strong>1.</strong> Файл презентации в чате группы (PPTX или PDF)</div>
+  <div class="crit-item"><strong>2.</strong> Указан сервис, в котором собрана дека</div>
+  <div class="crit-item"><strong>3.</strong> Указано время сборки</div>
+  <div class="crit-item"><strong>4.</strong> Одно–два предложения: что понравилось, что не понравилось, будете ли использовать в работе</div>
+  <div class="crit-item"><strong>5.</strong> Задача реальная — по ответу или содержанию понятно, что это рабочий кейс, не абстрактная презентация «про кота»</div>
+  <div class="crit-item"><strong>6.</strong> Цифры в деке не противоречат вашим данным (проверка фактов пройдена)</div>
+</div>
+
+<div class="section-title">Типичные ошибки</div>
+<div class="mistakes">
+  <div class="mistake-item">Доверить ИИ цифры без сверки — красиво, но неверно. Проверяйте числа всегда</div>
+  <div class="mistake-item">Скинуть текст «полотном» без разделения — используйте три дефиса в Gamma или явные тезисы по слайдам</div>
+  <div class="mistake-item">Гнаться за красотой в ущерб содержанию — генератор оформляет, но смысл задаёте вы</div>
+  <div class="mistake-item">Экспортировать «как есть» без вычитки — 5 минут ручной доработки отличают черновик от рабочей деки</div>
+  <div class="mistake-item">Прогонять на выдуманном примере — теряется весь смысл: эффект виден только на реальной задаче</div>
+</div>
+
+<div class="section-title">Что отправить в чат группы</div>
+<div class="template"><h2>Шаблон сообщения</h2>📎 Файл презентации (PPTX/PDF)
+
+Сервис: [название]
+Задача: [одна строка — что за презентация]
+Время сборки: [X минут]
+Вывод: [1–2 предложения — понравилось / не понравилось / буду ли использовать]
+
+⭐ [если делали задание со звёздочкой: результат сравнения двух сервисов]</div>
+
+<footer>
+  <p>Материалы к воркшопу Алексея Парфуна «AI для FMCG 2026» · Занятие 3 «Презентации с ИИ»</p>
+  <p style="margin-top:4px;"><a href="https://mrvolkomorov.github.io/ai-fmcg-portal/">Каталог материалов</a> · <a href="https://mrvolkomorov.github.io/ai-fmcg-slides-materials/">Материалы для самостоятельного изучения</a> · <a href="https://github.com/mrvolkomorov/ai-fmcg-slides-homework">Репозиторий на GitHub</a></p>
+</footer>
+
+</div>
+</body>
+</html>
